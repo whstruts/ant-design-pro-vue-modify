@@ -3,11 +3,11 @@
     <!-- TODO 此处修改全局页脚 -->
     <div class="links">
       <a
-        href="https://pro.loacg.com/"
+        href="https://gitee.com/free_pan/ant-design-pro-vue-modify"
         target="_blank"
       >Pro 首页</a>
       <a
-        href="https://github.com/sendya/ant-design-pro-vue"
+        href="https://gitee.com/free_pan/ant-design-pro-vue-modify"
         target="_blank"
       >
         <a-icon type="github" />
