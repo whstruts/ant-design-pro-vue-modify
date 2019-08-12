@@ -4,7 +4,14 @@
 本项目是一个面向中后台的前框框架(支持PC和移动端). 是在Ant Design Pro Vue项目的基础上修改而来
 </div>
 
-[TOC]
+## 在线实例
+
+http://free_pan.gitee.io/ant-design-pro-vue-modify/
+
+有两个账号: 
+
+超管: admin/admin
+普通: test/test
 
 ## 修改点
 
