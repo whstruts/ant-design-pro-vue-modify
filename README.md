@@ -27,9 +27,14 @@ http://free_pan.gitee.io/ant-design-pro-vue-modify/
 
 原pro有一个i18n的分支, 主要是没有相关的文档说明, 以及未与最新master版本同步, 因此自己写了一个
 
+[国际化资源数据示例](/public/api/mock-api/language-data-zh_CN.json)
+
 #### 关于动态菜单
 
 原pro有一个动态菜单的分支, 主要问题是, 那个菜单的构建, 是根据路由数据来的, 形成了强耦合, 个人认为菜单数据不应该与路由数据强耦合.
+因此, 我这版, 菜单是菜单, 路由是路由. 虽然菜单和路由之间存在关联, 但并非数据上的直接关联.
+
+[菜单数据示例, 见 menuTree 部分](/public/api/mock-api/user-permission-info.json)
 
 ## 版本对应关系
 
