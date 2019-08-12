@@ -116,8 +116,8 @@ _这里着重说明_: 动态菜单和动态路由是两个不同的概念.
 
 - 拉取项目代码
 ```bash
-git clone https://gitee.com/free_pan/Ant-Design-Pro-Vue-Extends.git
-cd Ant-Design-Pro-Vue-Extends
+git clone https://gitee.com/free_pan/ant-design-pro-vue-modify.git
+cd ant-design-pro-vue-modify
 ```
 
 - 安装依赖
