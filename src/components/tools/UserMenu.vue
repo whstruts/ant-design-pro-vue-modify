@@ -57,6 +57,7 @@ export default {
   methods: {
     ...mapActions(['Logout']),
     ...mapGetters(['nickname', 'avatar']),
+    // TODO 最后一步: 退出登录界面
     handleLogout () {
       const that = this
 
