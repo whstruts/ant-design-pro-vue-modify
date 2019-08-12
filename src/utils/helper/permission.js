@@ -26,7 +26,7 @@ function plugin (Vue) {
          *  menuPermission: 可选. 类型为:字符串或数组. 如果有值,则必须同时拥有菜单权限和功能权限
          */
         return (funPermission, menuPermission) => {
-          // TODO 第 6 步: 自定义鉴权标签改造点: 根据自己的数据结构特点, 改造鉴权逻辑. 需要跟action.js那边保持一致
+          // TODO 第 6 步: 自定义鉴权指令改造点: 根据自己的数据结构特点, 改造鉴权逻辑. 需要跟action.js那边保持一致
           // 获取当前用户的所有功能权限
           const funPermissionList = store.getters.funPermissions
           // 获取当前用户的所有菜单权限

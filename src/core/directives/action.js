@@ -17,7 +17,7 @@ import hasMenuPermission from '@/utils/hasMenuPermission'
  */
 const action = Vue.directive('action', {
   inserted: function (el, binding, vnode) {
-    // TODO 第 5 步: 自定义鉴权标签改造点: 根据自己的数据结构特点, 改造鉴权逻辑
+    // TODO 第 5 步: 自定义鉴权指令改造点: 根据自己的数据结构特点, 改造鉴权逻辑
     // 获取当前需要鉴权的操作标识值
     const actionName = binding.arg
     // 获取当前用户的所有功能权限
