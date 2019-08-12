@@ -10,6 +10,7 @@ const I18N_LOCALE_KEY = 'i18n-locale'
 export function loadI18nLocale () {
   let i18nLocale = WinterUtil.getJsSessionItem(I18N_LOCALE_KEY)
   if (WinterUtil.strIsBlank(i18nLocale)) {
+    // TODO 如果要修改系统的默认语言, 请修改这里
     i18nLocale = 'zh_CN'
   }
   return i18nLocale
