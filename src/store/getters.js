@@ -9,7 +9,10 @@ const getters = {
   roles: state => state.user.roles,
   userInfo: state => state.user.info,
   addRouters: state => state.permission.addRouters,
-  multiTab: state => state.app.multiTab
+  multiTab: state => state.app.multiTab,
+  funPermissions: state => state.user.funPermissions,
+  routerPermissions: state => state.user.routerPermissions,
+  menuTree: state => state.user.menuTree
 }
 
 export default getters

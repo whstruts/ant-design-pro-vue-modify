@@ -1,0 +1,294 @@
+{
+  "id": 1,
+  "name": "小明",
+  "username": "admin",
+  "avatar": "https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png",
+  "status": 1,
+  "tel": "15084726668",
+  "roleId": "admin",
+  "token": "7758258-faslkdjflkasjdf",
+  "roleList": [
+    "admin",
+    "company-admin"
+  ],
+  "funPermissionList": [
+    "user_add",
+    "user_delete"
+  ],
+  "menuPermissionList": [
+    "fun-permission",
+    "dashboard",
+    "dashboard",
+    "form",
+    "table",
+    "profile",
+    "result",
+    "exception",
+    "user",
+    "dashboard",
+    "support"
+  ],
+  "menuTree": [
+    {
+      "path": "/dashboard",
+      "flag": "dashboard",
+      "title": "menu:dashboard",
+      "icon": "eye",
+      "children": [
+        {
+          "path": "/dashboard/analysis",
+          "flag": "analysis",
+          "title": "menu:analysis"
+        },
+        {
+          "path": "https://www.baidu.com/",
+          "flag": "monitor",
+          "title": "menu:monitor",
+          "target": "_blank"
+        },
+        {
+          "path": "/dashboard/workplace",
+          "flag": "workplace",
+          "title": "menu:workplace"
+        }
+      ]
+    },
+    {
+      "path": "/form",
+      "flag": "form",
+      "title": "menu:form",
+      "icon": "form",
+      "children": [
+        {
+          "path": "/form/base-form",
+          "flag": "BaseForm",
+          "title": "menu:BaseForm"
+        },
+        {
+          "path": "/form/step-form",
+          "flag": "StepForm",
+          "title": "menu:StepForm"
+        },
+        {
+          "path": "/form/advanced-form",
+          "flag": "AdvancedForm",
+          "title": "menu:AdvanceForm"
+        }
+      ]
+    },
+    {
+      "path": "/list",
+      "flag": "list",
+      "title": "menu:list",
+      "icon": "table",
+      "children": [
+        {
+          "path": "/list/table-list/1",
+          "flag": "TableListWrapper",
+          "title": "menu:TableListWrapper"
+        },
+        {
+          "path": "/list/basic-list",
+          "flag": "BasicList",
+          "title": "menu:BasicList"
+        },
+        {
+          "path": "/list/card",
+          "flag": "CardList",
+          "title": "menu:CardList"
+        },
+        {
+          "path": "/list/search",
+          "flag": "SearchList",
+          "title": "menu:SearchList",
+          "children": [
+            {
+              "path": "/list/search/article",
+              "flag": "SearchArticle",
+              "title": "menu:SearchArticles"
+            },
+            {
+              "path": "/list/search/project",
+              "flag": "SearchProject",
+              "title": "menu:SearchProjects"
+            },
+            {
+              "path": "/list/search/application",
+              "flag": "SearchApplication",
+              "title": "menu:SearchApplications"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/profile",
+      "flag": "profile",
+      "title": "menu:profile",
+      "icon": "profile",
+      "children": [
+        {
+          "path": "/profile/basic",
+          "flag": "ProfileBasic",
+          "title": "menu:ProfileBasic"
+        },
+        {
+          "path": "/profile/advanced",
+          "flag": "ProfileAdvanced",
+          "title": "menu:ProfileAdvanced"
+        }
+      ]
+    },
+    {
+      "path": "/result",
+      "flag": "result",
+      "title": "menu:result",
+      "icon": "check-circle-o",
+      "children": [
+        {
+          "path": "/result/success",
+          "flag": "ResultSuccess",
+          "title": "menu:ResultSuccess"
+        },
+        {
+          "path": "/result/fail",
+          "flag": "ResultFail",
+          "title": "menu:ResultFail"
+        }
+      ]
+    },
+    {
+      "path": "/exception",
+      "flag": "exception",
+      "title": "menu:exception",
+      "icon": "warning",
+      "children": [
+        {
+          "path": "/exception/403",
+          "flag": "Exception403",
+          "title": "menu:Exception403"
+        },
+        {
+          "path": "/exception/404",
+          "flag": "Exception404",
+          "title": "menu:Exception404"
+        },
+        {
+          "path": "/exception/500",
+          "flag": "Exception500",
+          "title": "menu:Exception500"
+        }
+      ]
+    },
+    {
+      "path": "/account",
+      "flag": "account",
+      "title": "menu:account",
+      "icon": "user",
+      "children": [
+        {
+          "path": "/account/center",
+          "flag": "AccountCenter",
+          "title": "menu:center"
+        },
+        {
+          "path": "/account/settings",
+          "flag": "AccountSettings",
+          "title": "menu:settings",
+          "children": [
+            {
+              "path": "/account/settings/base",
+              "flag": "BaseSettings",
+              "title": "menu:BaseSettings"
+            },
+            {
+              "path": "/account/settings/security",
+              "flag": "SecuritySettings",
+              "title": "menu:SecuritySettings"
+            },
+            {
+              "path": "/account/settings/custom",
+              "flag": "CustomSettings",
+              "title": "menu:CustomSettings"
+            },
+            {
+              "path": "/account/settings/binding",
+              "flag": "BindingSettings",
+              "title": "menu:BindingSettings"
+            },
+            {
+              "path": "/account/settings/notification",
+              "flag": "NotificationSettings",
+              "title": "menu:NotificationSettings"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/other",
+      "flag": "otherPage",
+      "title": "menu:otherPage",
+      "icon": "slack",
+      "children": [
+        {
+          "path": "/other/icon-selector",
+          "flag": "TestIconSelect",
+          "title": "menu:TestIconSelect",
+          "icon": "tool"
+        },
+        {
+          "path": "/other/list",
+          "flag": "BizLayout",
+          "title": "menu:BizLayout",
+          "icon": "layout",
+          "children": [
+            {
+              "path": "/other/list/tree-list",
+              "flag": "TreeList",
+              "title": "menu:TreeList"
+            },
+            {
+              "path": "/other/list/edit-table",
+              "flag": "EditList",
+              "title": "menu:EditList"
+            },
+            {
+              "path": "/other/list/user-list",
+              "flag": "UserList",
+              "title": "menu:UserList"
+            },
+            {
+              "path": "/other/list/role-list",
+              "flag": "RoleList",
+              "title": "menu:RoleList"
+            },
+            {
+              "path": "/other/list/system-role",
+              "flag": "SystemRole",
+              "title": "menu:SystemRole"
+            },
+            {
+              "path": "/other/list/permission-list",
+              "flag": "PermissionList",
+              "title": "menu:PermissionList"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/fun-permission",
+      "flag": "FunPermission",
+      "title": "menu:permission-test",
+      "icon": "bxAnaalyse",
+      "children": [
+        {
+          "path": "/fun-permission/test",
+          "name": "FunPermissionTest",
+          "title": "menu:permission-test-page"
+        }
+      ]
+    }
+  ]
+}

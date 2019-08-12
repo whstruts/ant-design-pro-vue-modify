@@ -1,3 +1,6 @@
+import store from '@/store'
+import hasMenuPermission from '@/utils/hasMenuPermission'
+
 const PERMISSION_ENUM = {
   'add': { key: 'add', label: '新增' },
   'delete': { key: 'delete', label: '删除' },
@@ -18,15 +21,29 @@ function plugin (Vue) {
   !Vue.prototype.$auth && Object.defineProperties(Vue.prototype, {
     $auth: {
       get () {
-        const _this = this
-        return (permissions) => {
-          const [permission, action] = permissions.split('.')
-          const permissionList = _this.$store.getters.roles.permissions
-          return permissionList.find((val) => {
-            return val.permissionId === permission
-          }).actionList.findIndex((val) => {
-            return val === action
-          }) > -1
+        /*
+         *  funPermission: 必填. 类型为:字符串
+         *  menuPermission: 可选. 类型为:字符串或数组. 如果有值,则必须同时拥有菜单权限和功能权限
+         */
+        return (funPermission, menuPermission) => {
+          // TODO 第 6 步: 自定义鉴权标签改造点: 根据自己的数据结构特点, 改造鉴权逻辑. 需要跟action.js那边保持一致
+          // 获取当前用户的所有功能权限
+          const funPermissionList = store.getters.funPermissions
+          // 获取当前用户的所有菜单权限
+          const userMenuPermissions = store.getters.menuPermissions
+          if (menuPermission) {
+            if (hasMenuPermission(menuPermission, userMenuPermissions)) {
+              return funPermissionList.find((val) => {
+                return val === funPermission
+              }) !== undefined
+            } else {
+              return false
+            }
+          } else {
+            return funPermissionList.find((val) => {
+              return val === funPermission
+            }) !== undefined
+          }
         }
       }
     }

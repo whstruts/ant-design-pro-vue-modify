@@ -21,12 +21,15 @@ router.beforeEach((to, from, next) => {
       next({ path: '/dashboard/workplace' })
       NProgress.done()
     } else {
+      console.log('getters.roles内容:', store.getters.roles)
       if (store.getters.roles.length === 0) {
         store
           .dispatch('GetInfo')
           .then(res => {
-            const roles = res.result && res.result.role
-            store.dispatch('GenerateRoutes', { roles }).then(() => {
+            // 获取用户的路由(菜单)权限
+            const menuPermissionList = res.menuPermissionList
+            // TODO 第 3 步: 动态路由生成逻辑改造点: 可以改为适合你数据结构的生成逻辑
+            store.dispatch('GenerateRoutes', { menuPermissionList }).then(() => {
               // 根据roles权限生成可访问的路由表
               // 动态添加可访问路由表
               router.addRoutes(store.getters.addRouters)

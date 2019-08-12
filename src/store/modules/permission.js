@@ -29,7 +29,7 @@ function hasPermission (permission, route) {
  * @returns {*}
  */
 // eslint-disable-next-line
-function hasRole(roles, route) {
+function hasRole (roles, route) {
   if (route.meta && route.meta.roles) {
     return route.meta.roles.includes(roles.id)
   } else {
@@ -37,11 +37,11 @@ function hasRole(roles, route) {
   }
 }
 
-function filterAsyncRouter (routerMap, roles) {
+function filterAsyncRouter (routerMap, menuPermissionList) {
   const accessedRouters = routerMap.filter(route => {
-    if (hasPermission(roles.permissionList, route)) {
+    if (hasPermission(menuPermissionList, route)) {
       if (route.children && route.children.length) {
-        route.children = filterAsyncRouter(route.children, roles)
+        route.children = filterAsyncRouter(route.children, menuPermissionList)
       }
       return true
     }
@@ -64,8 +64,12 @@ const permission = {
   actions: {
     GenerateRoutes ({ commit }, data) {
       return new Promise(resolve => {
-        const { roles } = data
-        const accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
+        const { menuPermissionList } = data
+        // TODO 第 4 步: 路由构造改造点: 根据权限动态构造路由
+        console.log('前端定义的路由:', asyncRouterMap)
+        // 将用户拥有的菜单权限与前端定义的路由进行过滤, 构建出适合该用户的动态路由
+        const accessedRouters = filterAsyncRouter(asyncRouterMap, menuPermissionList)
+        console.log('用户可访问的路由:', accessedRouters)
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

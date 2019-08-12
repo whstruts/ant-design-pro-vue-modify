@@ -164,6 +164,7 @@ export default {
       openChange: this.onOpenChange
     }
 
+    // TODO 第 4.2 步: 生成菜单项改造点: 如果你的数据结构与pro不同, 则需要改变菜单项生成逻辑
     const menuTree = menu.map(item => {
       if (item.hidden) {
         return null

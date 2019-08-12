@@ -111,6 +111,7 @@ export default {
     }
   },
   created () {
+    // TODO 第 4.1 步: 菜单数据来源改造点: 菜单数据直接来源是store
     this.menus = this.mainMenu.find(item => item.path === '/').children
     this.collapsed = !this.sidebarOpened
   },

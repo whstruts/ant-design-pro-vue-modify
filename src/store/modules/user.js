@@ -10,6 +10,10 @@ const user = {
     welcome: '',
     avatar: '',
     roles: [],
+    funPermissions: [],
+    routerPermissions: [],
+    // 菜单树数据
+    menuTree: [],
     info: {}
   },
 
@@ -29,6 +33,15 @@ const user = {
     },
     SET_INFO: (state, info) => {
       state.info = info
+    },
+    SET_FUN_PERMISSIONS: (state, funPermissions) => {
+      state.funPermissions = funPermissions
+    },
+    SET_ROUTER_PERMISSIONS: (state, routerPermissions) => {
+      state.routerPermissions = routerPermissions
+    },
+    SET_MENU_TREE (state, menuTree) {
+      state.menuTree = menuTree
     }
   },
 
@@ -36,11 +49,14 @@ const user = {
     // 登录
     Login ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
+        // TODO 第 1 步: 登录改造点: 将登录地址改为自己的登录地址, 将返回结果改为自己的返回结果
         login(userInfo).then(response => {
-          const result = response.result
+          console.log('user.json获取登录结果', response)
+          const result = response
+          // token只用于前端验证是否登录, 也可以直接将id或者其它什么东西放入(只在[src/permission.js]中,以及当前文件的Logout方法中有用到)
           Vue.ls.set(ACCESS_TOKEN, result.token, 7 * 24 * 60 * 60 * 1000)
           commit('SET_TOKEN', result.token)
-          resolve()
+          resolve(result)
         }).catch(error => {
           reject(error)
         })
@@ -50,26 +66,23 @@ const user = {
     // 获取用户信息
     GetInfo ({ commit }) {
       return new Promise((resolve, reject) => {
+        // TODO 第 2 步: 获取用户权限信息改造点: 将地址改为自己的请求地址
         getInfo().then(response => {
-          const result = response.result
+          const result = response
 
-          if (result.role && result.role.permissions.length > 0) {
-            const role = result.role
-            role.permissions = result.role.permissions
-            role.permissions.map(per => {
-              if (per.actionEntitySet != null && per.actionEntitySet.length > 0) {
-                const action = per.actionEntitySet.map(action => { return action.action })
-                per.actionList = action
-              }
-            })
-            role.permissionList = role.permissions.map(permission => { return permission.permissionId })
-            commit('SET_ROLES', result.role)
-            commit('SET_INFO', result)
-          } else {
-            reject(new Error('getInfo: roles must be a non-null array !'))
-          }
+          commit('SET_ROLES', result.roleList)
+          // 设置功能权限
+          commit('SET_FUN_PERMISSIONS', result.funPermissionList)
+          // 设置路由权限
+          commit('SET_ROUTER_PERMISSIONS', result.menuPermissionList)
+          // 设置用户菜单
+          commit('SET_MENU_TREE', result.menuTree)
+          // 设置用户信息
+          commit('SET_INFO', result)
 
+          // 用户姓名
           commit('SET_NAME', { name: result.name, welcome: welcome() })
+          // 用户图片
           commit('SET_AVATAR', result.avatar)
 
           resolve(response)
@@ -81,9 +94,21 @@ const user = {
 
     // 登出
     Logout ({ commit, state }) {
+      // TODO 最后一步: 登出改造点
       return new Promise((resolve) => {
+        // 清除store中的已登录标识
         commit('SET_TOKEN', '')
+        // 清除用户拥有的角色信息
         commit('SET_ROLES', [])
+        // 清除用户拥有的功能权限信息
+        commit('SET_FUN_PERMISSIONS', [])
+        // 清除用户拥有的拥有权限信息
+        commit('SET_ROUTER_PERMISSIONS', [])
+        // 清除用户拥有的菜单信息
+        commit('SET_MENU_TREE', [])
+        // 清除用户信息
+        commit('SET_INFO', {})
+        // 清除已登录标识
         Vue.ls.remove(ACCESS_TOKEN)
 
         logout(state.token).then(() => {
