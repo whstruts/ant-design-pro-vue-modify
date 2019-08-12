@@ -66,19 +66,22 @@ const user = {
     // 获取用户信息
     GetInfo ({ commit, state }) {
       return new Promise((resolve, reject) => {
-        // TODO 第 2 步: 获取用户权限信息改造点: 将地址改为自己的请求地址
+        // TODO 第 2 步: 获取用户权限信息改造点: 将地址改为自己的请求地址, 将您的数据结构, 转换为pro能够识别的数据结构
         const admin = Vue.ls.get(ACCESS_TOKEN) === '7758258'
         console.log('是否超管:' + admin)
         getInfo(admin).then(response => {
           const result = response
 
+          // role的作用是`permission.js`文件中, 用于判断是否需要到服务器拉取权限数据的依据
           commit('SET_ROLES', result.roleList)
           // 设置功能权限
           commit('SET_FUN_PERMISSIONS', result.funPermissionList)
           // 设置路由权限
           commit('SET_ROUTER_PERMISSIONS', result.menuPermissionList)
-          // 设置用户菜单
+
+          // 设置用户动态菜单(这是由服务器返回的动态菜单), 一般来说您的数据结构和我这肯定是不一样的. 因此可以在这里进行转换, 转换成功完成之后, 再执行下面的`SET_MENU_TREE`方法
           commit('SET_MENU_TREE', result.menuTree)
+
           // 设置用户信息
           commit('SET_INFO', result)
 

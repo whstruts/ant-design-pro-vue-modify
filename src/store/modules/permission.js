@@ -65,7 +65,7 @@ const permission = {
     GenerateRoutes ({ commit }, data) {
       return new Promise(resolve => {
         const { menuPermissionList } = data
-        // TODO 第 4 步: 路由构造改造点: 根据权限动态构造路由
+        // TODO 第 4 步: 动态路由构造改造点: 根据权限动态构造路由, 如果您不需要动态路由, 则直接 commit('SET_ROUTERS', asyncRouterMap)
         console.log('前端定义的路由:', asyncRouterMap)
         // 将用户拥有的菜单权限与前端定义的路由进行过滤, 构建出适合该用户的动态路由
         const accessedRouters = filterAsyncRouter(asyncRouterMap, menuPermissionList)
