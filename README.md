@@ -6,11 +6,14 @@
 
 ## 在线实例
 
+由于在线实例是静态发布, 因此某些数据加载不出来, 并不会影响您的实际开发使用.
+
 http://free_pan.gitee.io/ant-design-pro-vue-modify/
 
 有两个账号: 
 
 超管: admin/admin
+
 普通: test/test
 
 ## 修改点
