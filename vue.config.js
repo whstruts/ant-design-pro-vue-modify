@@ -69,6 +69,7 @@ const vueConfig = {
   lintOnSave: undefined,
   // babel-loader no-ignore node_modules/*
   transpileDependencies: [],
+  // TODO 如果项目是发布在web服务器的非根目录,则需要指定项目的名称, 这里我发布到gitee, 所以指定了项目名称
   publicPath: process.env.NODE_ENV === 'production' ? '/ant-design-pro-vue-modify/' : '/'
 }
 
