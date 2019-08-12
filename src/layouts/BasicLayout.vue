@@ -93,7 +93,7 @@ export default {
   computed: {
     ...mapState({
       // 动态主路由
-      mainMenu: state => state.permission.addRouters
+      mainMenu: state => state.user.menuTree
     }),
     contentPaddingLeft () {
       if (!this.fixSidebar || this.isMobile()) {
@@ -112,7 +112,7 @@ export default {
   },
   created () {
     // TODO 第 4.1 步: 菜单数据来源改造点: 菜单数据直接来源是store
-    this.menus = this.mainMenu.find(item => item.path === '/').children
+    this.menus = [...this.mainMenu]
     this.collapsed = !this.sidebarOpened
   },
   mounted () {

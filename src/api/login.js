@@ -28,9 +28,10 @@ export function getSmsCaptcha (parameter) {
   })
 }
 
-export function getInfo () {
+export function getInfo (admin) {
+  const url = admin ? '/mock-api/user-permission-info-admin.json' : '/mock-api/user-permission-info.json'
   return axios({
-    url: '/mock-api/user-permission-info.json',
+    url: url,
     method: 'get',
     headers: {
       'Content-Type': 'application/json;charset=UTF-8'

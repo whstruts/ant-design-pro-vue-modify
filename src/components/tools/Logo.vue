@@ -16,6 +16,7 @@ export default {
     LogoSvg
   },
   props: {
+    // TODO 此处修改项目LOGO
     title: {
       type: String,
       default: 'Ant Design Pro',

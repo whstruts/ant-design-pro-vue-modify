@@ -23,7 +23,7 @@ const action = Vue.directive('action', {
     // 获取当前用户的所有功能权限
     const funPermissions = store.getters.funPermissions
     // 获取当前用户的所有菜单权限
-    const menuPermissions = store.getters.menuPermissions
+    const menuPermissions = store.getters.routerPermissions
     // 获取当前路由的`meta.permission`值
     const elVal = vnode.context.$route.meta.permission
     const permissionId = elVal instanceof String && [elVal] || elVal

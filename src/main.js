@@ -15,6 +15,8 @@ import './core/use'
 import './permission' // permission control
 import './utils/filter' // global filter
 
+import i18n from './config/i18n.config'
+
 Vue.config.productionTip = false
 
 // mount axios Vue.$http and this.$http
@@ -23,6 +25,7 @@ Vue.use(VueAxios)
 new Vue({
   router,
   store,
+  i18n,
   created: bootstrap,
   render: h => h(App)
 }).$mount('#app')

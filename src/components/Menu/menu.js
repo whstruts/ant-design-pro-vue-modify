@@ -1,5 +1,6 @@
 import Menu from 'ant-design-vue/es/menu'
 import Icon from 'ant-design-vue/es/icon'
+import menuPathIsExternalLinks from '@/utils/menuPathUtil'
 
 const { Item, SubMenu } = Menu
 
@@ -99,10 +100,12 @@ export default {
       return null
     },
     renderMenuItem (menu) {
-      const target = menu.meta.target || null
+      // 判断菜单的链接是否为外部链接, 如果是则使用新标签页打开, 否则在当前页打开
+      const isExternalLinks = menuPathIsExternalLinks(menu.path)
+      const target = isExternalLinks || null
       const tag = target && 'a' || 'router-link'
-      const props = { to: { name: menu.name } }
-      const attrs = { href: menu.path, target: menu.meta.target }
+      const props = { to: menu.path }
+      const attrs = { href: menu.path, target: isExternalLinks ? '_blank' : '' }
 
       if (menu.children && menu.hideChildrenInMenu) {
         // 把有子菜单的 并且 父菜单是要隐藏子菜单的
@@ -116,8 +119,8 @@ export default {
       return (
         <Item {...{ key: menu.path }}>
           <tag {...{ props, attrs }}>
-            {this.renderIcon(menu.meta.icon)}
-            <span>{menu.meta.title}</span>
+            {this.renderIcon(menu.icon)}
+            <span>{this.$t(menu.title)}</span>
           </tag>
         </Item>
       )
@@ -130,8 +133,8 @@ export default {
       return (
         <SubMenu {...{ key: menu.path }}>
           <span slot="title">
-            {this.renderIcon(menu.meta.icon)}
-            <span>{menu.meta.title}</span>
+            {this.renderIcon(menu.icon)}
+            <span>{this.$t(menu.title)}</span>
           </span>
           {itemArr}
         </SubMenu>
@@ -144,7 +147,7 @@ export default {
       const props = {}
       typeof (icon) === 'object' ? props.component = icon : props.type = icon
       return (
-        <Icon {... { props } }/>
+        <Icon {... { props }}/>
       )
     }
   },

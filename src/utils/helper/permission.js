@@ -30,7 +30,7 @@ function plugin (Vue) {
           // 获取当前用户的所有功能权限
           const funPermissionList = store.getters.funPermissions
           // 获取当前用户的所有菜单权限
-          const userMenuPermissions = store.getters.menuPermissions
+          const userMenuPermissions = store.getters.routerPermissions
           if (menuPermission) {
             if (hasMenuPermission(menuPermission, userMenuPermissions)) {
               return funPermissionList.find((val) => {

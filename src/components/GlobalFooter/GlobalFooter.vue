@@ -1,5 +1,6 @@
 <template>
   <div class="footer">
+    <!-- TODO 此处修改全局页脚 -->
     <div class="links">
       <a
         href="https://pro.loacg.com/"

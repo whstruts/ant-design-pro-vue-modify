@@ -5,6 +5,7 @@ import app from './modules/app'
 import user from './modules/user'
 import permission from './modules/permission'
 import getters from './getters'
+import language from './modules/language'
 
 Vue.use(Vuex)
 
@@ -12,16 +13,11 @@ export default new Vuex.Store({
   modules: {
     app,
     user,
-    permission
+    permission,
+    language
   },
-  state: {
-
-  },
-  mutations: {
-
-  },
-  actions: {
-
-  },
+  state: {},
+  mutations: {},
+  actions: {},
   getters
 })

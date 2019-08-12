@@ -21,7 +21,6 @@ router.beforeEach((to, from, next) => {
       next({ path: '/dashboard/workplace' })
       NProgress.done()
     } else {
-      console.log('getters.roles内容:', store.getters.roles)
       if (store.getters.roles.length === 0) {
         store
           .dispatch('GetInfo')

@@ -38,6 +38,7 @@
           </a-menu-item>
         </a-menu>
       </a-dropdown>
+      <language-select/>
     </div>
   </div>
 </template>
@@ -45,11 +46,13 @@
 <script>
 import NoticeIcon from '@/components/NoticeIcon'
 import { mapActions, mapGetters } from 'vuex'
+import LanguageSelect from './LanguageSelect'
 
 export default {
   name: 'UserMenu',
   components: {
-    NoticeIcon
+    NoticeIcon,
+    LanguageSelect
   },
   methods: {
     ...mapActions(['Logout']),

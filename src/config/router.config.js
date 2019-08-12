@@ -327,13 +327,13 @@ export const asyncRouterMap = [
         redirect: '/fun-permission/test',
         component: PageView,
         hideChildrenInMenu: true,
-        meta: { title: '按钮权限控制测试', keepAlive: true, icon: bxAnaalyse, permission: ['fun-permission'] },
+        meta: { keepAlive: true, icon: bxAnaalyse, permission: ['fun-permission'] },
         children: [
           {
             path: '/fun-permission/test',
             name: 'FunPermissionTest',
             component: () => import('@/views/fun-permission/fun-permission-test'),
-            meta: { title: '按钮权限测试', keepAlive: false, permission: ['fun-permission'], hidden: true }
+            meta: { title: 'menu:permission-test', keepAlive: false, permission: ['fun-permission'], hidden: true }
           }
         ]
       }

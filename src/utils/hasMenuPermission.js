@@ -5,6 +5,10 @@
  */
 export default function hasMenuPermission (currentRoutePermissions, currentUserMenuPermissions) {
   if (currentRoutePermissions) {
+    if (!currentUserMenuPermissions) {
+      // 当前用户没有任何权限
+      return false
+    }
     if (typeof (currentRoutePermissions) === 'string') {
       // 当前路由有设置mate.permission属性值,且类型为字符串
       for (const menuPermission of currentUserMenuPermissions) {

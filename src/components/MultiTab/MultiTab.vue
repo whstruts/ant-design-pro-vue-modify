@@ -77,10 +77,10 @@ export default {
     renderTabPaneMenu (e) {
       return (
         <a-menu {...{ on: { click: ({ key, item, domEvent }) => { this.closeMenuClick(key, e) } } }}>
-          <a-menu-item key="closeThat">关闭当前标签</a-menu-item>
-          <a-menu-item key="closeRight">关闭右侧</a-menu-item>
-          <a-menu-item key="closeLeft">关闭左侧</a-menu-item>
-          <a-menu-item key="closeAll">关闭全部</a-menu-item>
+          <a-menu-item key="closeThat">{this.$t('ui:close-current')}</a-menu-item>
+          <a-menu-item key="closeRight">{this.$t('ui:close-right')}</a-menu-item>
+          <a-menu-item key="closeLeft">{this.$t('ui:close-left')}</a-menu-item>
+          <a-menu-item key="closeAll">{this.$t('ui:close-all')}</a-menu-item>
         </a-menu>
       )
     },
@@ -90,7 +90,7 @@ export default {
 
       return (
         <a-dropdown overlay={menu} trigger={['contextmenu']}>
-          <span style={{ userSelect: 'none' }}>{ title }</span>
+          <span style={{ userSelect: 'none' }}>{ this.$t(title) }</span>
         </a-dropdown>
       )
     }

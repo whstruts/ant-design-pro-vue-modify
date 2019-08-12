@@ -51,11 +51,11 @@ const user = {
       return new Promise((resolve, reject) => {
         // TODO 第 1 步: 登录改造点: 将登录地址改为自己的登录地址, 将返回结果改为自己的返回结果
         login(userInfo).then(response => {
-          console.log('user.json获取登录结果', response)
           const result = response
           // token只用于前端验证是否登录, 也可以直接将id或者其它什么东西放入(只在[src/permission.js]中,以及当前文件的Logout方法中有用到)
-          Vue.ls.set(ACCESS_TOKEN, result.token, 7 * 24 * 60 * 60 * 1000)
-          commit('SET_TOKEN', result.token)
+          const token = userInfo.username === 'admin' ? '7758258' : '666666'
+          Vue.ls.set(ACCESS_TOKEN, token, 7 * 24 * 60 * 60 * 1000)
+          commit('SET_TOKEN', token)
           resolve(result)
         }).catch(error => {
           reject(error)
@@ -64,10 +64,12 @@ const user = {
     },
 
     // 获取用户信息
-    GetInfo ({ commit }) {
+    GetInfo ({ commit, state }) {
       return new Promise((resolve, reject) => {
         // TODO 第 2 步: 获取用户权限信息改造点: 将地址改为自己的请求地址
-        getInfo().then(response => {
+        const admin = Vue.ls.get(ACCESS_TOKEN) === '7758258'
+        console.log('是否超管:' + admin)
+        getInfo(admin).then(response => {
           const result = response
 
           commit('SET_ROLES', result.roleList)
@@ -111,11 +113,12 @@ const user = {
         // 清除已登录标识
         Vue.ls.remove(ACCESS_TOKEN)
 
-        logout(state.token).then(() => {
-          resolve()
-        }).catch(() => {
-          resolve()
-        })
+        resolve()
+        // logout(state.token).then(() => {
+        //   resolve()
+        // }).catch(() => {
+        //   resolve()
+        // })
       })
     }
 
