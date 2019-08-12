@@ -68,7 +68,8 @@ const vueConfig = {
   productionSourceMap: false,
   lintOnSave: undefined,
   // babel-loader no-ignore node_modules/*
-  transpileDependencies: []
+  transpileDependencies: [],
+  publicPath: process.env.NODE_ENV === 'production' ? '/ant-design-pro-vue-modify/' : '/'
 }
 
 // preview.pro.loacg.com only do not use in your production;
