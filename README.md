@@ -47,7 +47,7 @@ http://free_pan.gitee.io/ant-design-pro-vue-modify/
 
 | 原pro | 当前项目 | 同步/发布时间 |
 | --- | --- | --- |
-| master | master | 2019-08-11 |
+| master | master | 2019-08-15 |
 | 2.0.2 | 2.0.2 | 2019-08-11 |
 
 ## 您可能会有的疑问
