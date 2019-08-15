@@ -16,24 +16,24 @@
           <a-menu-item key="0">
             <router-link :to="{ name: 'center' }">
               <a-icon type="user"/>
-              <span>个人中心</span>
+              <span>{{$t('menu:center')}}</span>
             </router-link>
           </a-menu-item>
           <a-menu-item key="1">
             <router-link :to="{ name: 'settings' }">
               <a-icon type="setting"/>
-              <span>账户设置</span>
+              <span>{{$t('menu:settings')}}</span>
             </router-link>
           </a-menu-item>
           <a-menu-item key="2" disabled>
             <a-icon type="setting"/>
-            <span>测试</span>
+            <span>{{$t('menu:test')}}</span>
           </a-menu-item>
           <a-menu-divider/>
           <a-menu-item key="3">
             <a href="javascript:;" @click="handleLogout">
               <a-icon type="logout"/>
-              <span>退出登录</span>
+              <span>{{$t('menu:logout')}}</span>
             </a>
           </a-menu-item>
         </a-menu>

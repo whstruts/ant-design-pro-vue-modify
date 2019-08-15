@@ -10,7 +10,7 @@
           当前页面还有个特点,那就是这个页面属于一个一级菜单,如果您也有类似需求,请参考这个页面的路由配置方式<br/>
           请切换语言观察界面语言/标题栏的变化
           <br/>
-          如果需要测试菜单权限(路由权限),则使用 账号:test  密码:test
+          如果需要测试菜单权限(路由权限),则使用 账号:test 密码:test
           进入test账号后, 如果访问admin的菜单, 会进入404页面
         </p>
       </a-alert>
@@ -33,7 +33,19 @@
 
 <script>
   export default {
-    name: 'fun-permission-test'
+    name: 'fun-permission-test',
+    created: function () {
+      console.log('1-created')
+    },
+    mounted: function () {
+      console.log('2-mounted')
+    },
+    activated: function () {
+      console.log('3-activated')
+    },
+    deactivated: function () {
+      console.log('4-deactivated')
+    }
   }
 </script>
 

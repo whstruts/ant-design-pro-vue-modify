@@ -12,7 +12,7 @@
     <template slot="content">
       <a-spin :spinning="loadding">
         <a-tabs>
-          <a-tab-pane tab="通知" key="1">
+          <a-tab-pane :tab="$t('menu:inform')" key="1">
             <a-list>
               <a-list-item>
                 <a-list-item-meta title="你收到了 14 份新周报" description="一年前">
@@ -31,10 +31,10 @@
               </a-list-item>
             </a-list>
           </a-tab-pane>
-          <a-tab-pane tab="消息" key="2">
+          <a-tab-pane :tab="$t('menu:message')" key="2">
             123
           </a-tab-pane>
-          <a-tab-pane tab="待办" key="3">
+          <a-tab-pane :tab="$t('menu:backlog')" key="3">
             123
           </a-tab-pane>
         </a-tabs>

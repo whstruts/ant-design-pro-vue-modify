@@ -9,13 +9,29 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'home:index' },
-    redirect: '/dashboard/workplace',
+    redirect: '/welcome/index',
     children: [
+      {
+        path: '/welcome',
+        name: 'dashboard',
+        redirect: '/welcome/index',
+        component: RouteView,
+        meta: { keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
+        children: [
+          {
+            path: '/welcome/index',
+            name: 'welcome',
+            component: () => import('@/views/welcome/Welcome'),
+            meta: { title: 'menu:welcome', keepAlive: false, permission: ['dashboard'] }
+          }
+        ]
+      },
+
       // dashboard
       {
         path: '/dashboard',
         name: 'dashboard',
-        redirect: '/dashboard/workplace',
+        redirect: '/dashboard/welcome',
         component: RouteView,
         meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
         children: [
@@ -333,7 +349,12 @@ export const asyncRouterMap = [
             path: '/fun-permission/test',
             name: 'FunPermissionTest',
             component: () => import('@/views/fun-permission/fun-permission-test'),
-            meta: { title: 'menu:permission-test', keepAlive: false, permission: ['fun-permission'], hidden: true }
+            meta: {
+              title: 'menu:permission-test',
+              keepAlive: true,
+              permission: ['fun-permission'],
+              hidden: true
+            }
           }
         ]
       }

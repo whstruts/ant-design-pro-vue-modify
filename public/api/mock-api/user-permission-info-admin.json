@@ -28,6 +28,12 @@
   ],
   "menuTree": [
     {
+      "path": "/welcome/index",
+      "flag": "welcome",
+      "title": "menu:welcome",
+      "icon": "smile"
+    },
+    {
       "path": "/dashboard",
       "flag": "dashboard",
       "title": "menu:dashboard",
