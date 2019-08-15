@@ -12,7 +12,9 @@ const getters = {
   multiTab: state => state.app.multiTab,
   funPermissions: state => state.user.funPermissions,
   routerPermissions: state => state.user.routerPermissions,
-  menuTree: state => state.user.menuTree
+  menuTree: state => state.user.menuTree,
+  // 是否已执行过从后台加载用户权限信息的web api
+  executedLoadPermissionFromBackend: state => state.user.executedLoadPermissionFromBackend
 }
 
 export default getters

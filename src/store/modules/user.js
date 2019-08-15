@@ -14,7 +14,9 @@ const user = {
     routerPermissions: [],
     // 菜单树数据
     menuTree: [],
-    info: {}
+    info: {},
+    // 是否已执行过从后台加载用户权限信息的web api
+    executedLoadPermissionFromBackend: false
   },
 
   mutations: {
@@ -42,6 +44,9 @@ const user = {
     },
     SET_MENU_TREE (state, menuTree) {
       state.menuTree = menuTree
+    },
+    SET_EXECUTED_LOAD_PERMISSION_FROM_BACKEND (state, executedLoadPermissionFromBackend) {
+      state.executedLoadPermissionFromBackend = executedLoadPermissionFromBackend
     }
   },
 
@@ -71,6 +76,9 @@ const user = {
         console.log('是否超管:' + admin)
         getInfo(admin).then(response => {
           const result = response
+
+          // 设置前端已从后端加载过权限数据, 后续将不再重新加载权限数据. 除非浏览器使用F5刷新
+          commit('SET_EXECUTED_LOAD_PERMISSION_FROM_BACKEND', true)
 
           // role的作用是`permission.js`文件中, 用于判断是否需要到服务器拉取权限数据的依据
           commit('SET_ROLES', result.roleList)

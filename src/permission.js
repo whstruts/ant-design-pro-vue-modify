@@ -21,7 +21,8 @@ router.beforeEach((to, from, next) => {
       next({ path: '/dashboard/workplace' })
       NProgress.done()
     } else {
-      if (store.getters.roles.length === 0) {
+      if (!store.getters.executedLoadPermissionFromBackend) {
+        // 前端尚未执行过从后台加载权限数据
         store
           .dispatch('GetInfo')
           .then(res => {
