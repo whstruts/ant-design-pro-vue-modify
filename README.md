@@ -91,11 +91,7 @@ _这里着重说明_: 动态菜单和动态路由是两个不同的概念.
 
 因为`RouteView`默认的keepAlive为true, 因此, 会使用缓存. 不会重新渲染. 
 
-解决方案有两个: 
-
-方式一: 改变keepAlive=false.
-
-方式二: 不使用RouteView改用PageView,如果不需要组件头部那个PageHeader, 可以设置路由的meta元素的hiddenHeaderContent值为true
+请检查您的配置是否有误,检查页面生命周期钩子函数(created-> mounted-> activated ->deactivated)的执行情况. 在对应的生命周期函数中调用数据初始化方法.
 
 ## 菜单数据结构
 
