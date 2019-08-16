@@ -16,6 +16,10 @@ http://free_pan.gitee.io/ant-design-pro-vue-modify/
 
 普通: test/test
 
+## 文档地址
+
+[入坑指南](http://free_pan.gitee.io/ant-design-pro-vue-modify-doc/)
+
 ## 修改点
 
 * 加入国际化支持
