@@ -18,9 +18,9 @@
       <!-- TODO 修改页脚 -->
       <div class="footer">
         <div class="links">
-          <a href="https://gitee.com/free_pan/ant-design-pro-vue-modify">帮助</a>
-          <a href="_self">隐私</a>
-          <a href="_self">条款</a>
+          <a href="http://free_pan.gitee.io/ant-design-pro-vue-modify-doc/">帮助</a>
+          <a href="javascript:;">隐私</a>
+          <a href="https://gitee.com/free_pan/ant-design-pro-vue-modify/blob/master/LICENSE">条款</a>
         </div>
         <div class="copyright">
           Copyright &copy; 2018 潘志勇出品
