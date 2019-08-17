@@ -151,13 +151,13 @@
       }
     },
     created () {
-      get2step({})
-        .then(res => {
-          this.requiredTwoStepCaptcha = res.result.stepCode
-        })
-        .catch(() => {
-          this.requiredTwoStepCaptcha = false
-        })
+      // get2step({})
+      //   .then(res => {
+      //     this.requiredTwoStepCaptcha = res.result.stepCode
+      //   })
+      //   .catch(() => {
+      //     this.requiredTwoStepCaptcha = false
+      //   })
       // this.requiredTwoStepCaptcha = true
     },
     methods: {
