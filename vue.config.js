@@ -88,7 +88,7 @@ if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'tr
         pure_funcs: ['console.log']
       },
       sourceMap: false,
-      parallel: tru
+      parallel: true
     }
   }))
 }
