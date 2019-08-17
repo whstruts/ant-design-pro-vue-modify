@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const createThemeColorReplacerPlugin = require('./config/plugin.config')
 
 function resolve (dir) {
@@ -76,8 +77,15 @@ const vueConfig = {
 
 // preview.pro.loacg.com only do not use in your production;
 if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'true') {
+  const productionGzipExtensions = ['js', 'css']
   // add `ThemeColorReplacer` plugin to webpack plugins
   vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
+  vueConfig.configureWebpack.plugins.push(new CompressionWebpackPlugin({
+    algorithm: 'gzip',
+    test: new RegExp(`\\.(${productionGzipExtensions.join('|')})$`),
+    threshold: 10240,
+    minRatio: 0.8
+  }))
   // 生产环境, 在压缩文件的同时, 去除console语句
   vueConfig.configureWebpack.plugins.push(new UglifyJsPlugin({
     uglifyOptions: {
