@@ -79,20 +79,18 @@ if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'tr
   // add `ThemeColorReplacer` plugin to webpack plugins
   vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
   // 生产环境, 在压缩文件的同时, 去除console语句
-  vueConfig.configureWebpack.optimization = {
-    minimizer: [
-      new UglifyJsPlugin({
-        uglifyOptions: {
-          compress: {
-            warnings: false,
-            drop_console: true,
-            drop_debugger: false,
-            pure_funcs: ['console.log']
-          }
-        }
-      })
-    ]
-  }
+  vueConfig.configureWebpack.plugins.push(new UglifyJsPlugin({
+    uglifyOptions: {
+      compress: {
+        warnings: false,
+        drop_console: true,
+        drop_debugger: false,
+        pure_funcs: ['console.log']
+      },
+      sourceMap: false,
+      parallel: tru
+    }
+  }))
 }
 
 module.exports = vueConfig
