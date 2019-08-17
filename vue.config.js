@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const createThemeColorReplacerPlugin = require('./config/plugin.config')
 
 function resolve (dir) {
@@ -70,13 +71,28 @@ const vueConfig = {
   // babel-loader no-ignore node_modules/*
   transpileDependencies: [],
   // TODO 如果项目是发布在web服务器的非根目录,则需要指定项目的名称, 这里我发布到gitee, 所以指定了项目名称
-  publicPath: process.env.NODE_ENV === 'production' ? '/ant-design-pro-vue-modify/' : '/'
+  publicPath: process.env.VUE_APP_PROJECT_NAME + '/'
 }
 
 // preview.pro.loacg.com only do not use in your production;
 if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'true') {
   // add `ThemeColorReplacer` plugin to webpack plugins
   vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
+  // 生产环境, 在压缩文件的同时, 去除console语句
+  vueConfig.configureWebpack.optimization = {
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            warnings: false,
+            drop_console: true,
+            drop_debugger: false,
+            pure_funcs: ['console.log']
+          }
+        }
+      })
+    ]
+  }
 }
 
 module.exports = vueConfig

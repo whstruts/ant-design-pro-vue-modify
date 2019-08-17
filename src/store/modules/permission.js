@@ -70,6 +70,7 @@ const permission = {
         // 将用户拥有的菜单权限与前端定义的路由进行过滤, 构建出适合该用户的动态路由
         const accessedRouters = filterAsyncRouter(asyncRouterMap, menuPermissionList)
         console.log('用户可访问的路由:', accessedRouters)
+        // 保存构建的动态路由
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

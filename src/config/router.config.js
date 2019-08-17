@@ -13,14 +13,14 @@ export const asyncRouterMap = [
     children: [
       {
         path: '/welcome',
-        name: 'dashboard',
+        name: 'welcome',
         redirect: '/welcome/index',
         component: RouteView,
         meta: { keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
         children: [
           {
             path: '/welcome/index',
-            name: 'welcome',
+            name: 'welcomeIndex',
             component: () => import('@/views/welcome/Welcome'),
             meta: { title: 'menu:welcome', keepAlive: false, permission: ['dashboard'] }
           }
