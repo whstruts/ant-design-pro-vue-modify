@@ -7,6 +7,7 @@ import router from './router'
 import store from './store/'
 import { VueAxios } from './utils/request'
 import VueHighlightJS from 'vue-highlightjs'
+import 'highlight.js/styles/dracula.css'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 

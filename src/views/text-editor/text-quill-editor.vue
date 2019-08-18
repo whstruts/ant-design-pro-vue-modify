@@ -18,7 +18,6 @@
 
 <script>
   import hljs from 'highlight.js'
-  import 'highlight.js/styles/xcode.css'
 
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'

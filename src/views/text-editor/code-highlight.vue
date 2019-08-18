@@ -5,7 +5,6 @@
 </template>
 
 <script>
-  import 'highlight.js/styles/dracula.css'
 
   export default {
     name: 'code-highlight.vue',
