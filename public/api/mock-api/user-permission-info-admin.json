@@ -258,6 +258,34 @@
       "flag": "FunPermission",
       "title": "menu:permission-test",
       "icon": "bxAnaalyse"
+    },
+    {
+      "path": "/editor",
+      "flag": "editor",
+      "title": "menu:editor",
+      "icon": "user",
+      "children": [
+        {
+          "path": "/editor/quill",
+          "flag": "richQuillEditor",
+          "title": "menu:quill-editor"
+        },
+        {
+          "path": "/editor/wang",
+          "flag": "richWangEditor",
+          "title": "menu:wang-editor"
+        },
+        {
+          "path": "/code/highlight",
+          "flag": "codeHighlight",
+          "title": "menu:code-highlight"
+        },
+        {
+          "path": "/md/mavon-editor",
+          "flag": "md-mavon-editor",
+          "title": "menu:md-mavon-editor"
+        }
+      ]
     }
   ]
 }

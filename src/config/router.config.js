@@ -357,6 +357,41 @@ export const asyncRouterMap = [
             }
           }
         ]
+      },
+
+      // editor
+      {
+        path: '/editor',
+        name: 'editor',
+        redirect: '/editor/quill',
+        component: RouteView,
+        meta: { title: '文本编辑器', keepAlive: true },
+        children: [
+          {
+            path: '/editor/quill',
+            name: 'textQuillEditor',
+            component: () => import('@/views/text-editor/text-quill-editor'),
+            meta: { title: 'quill富文本编辑器', keepAlive: false }
+          },
+          {
+            path: '/editor/wang',
+            name: 'textWangEditor',
+            component: () => import('@/views/text-editor/wang-editor'),
+            meta: { title: 'wang富文本编辑器', keepAlive: false }
+          },
+          {
+            path: '/code/highlight',
+            name: 'codeHighlight',
+            component: () => import('@/views/text-editor/code-highlight'),
+            meta: { title: '代码高亮', keepAlive: false }
+          },
+          {
+            path: '/md/mavon-editor',
+            name: 'md-mavon-editor',
+            component: () => import('@/views/text-editor/md-mavon-editor'),
+            meta: { title: 'markdown编辑器', keepAlive: false }
+          }
+        ]
       }
     ]
   },

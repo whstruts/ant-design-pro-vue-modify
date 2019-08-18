@@ -6,6 +6,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store/'
 import { VueAxios } from './utils/request'
+import VueHighlightJS from 'vue-highlightjs'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
 // mock
 import './mock'
@@ -21,6 +24,9 @@ Vue.config.productionTip = false
 
 // mount axios Vue.$http and this.$http
 Vue.use(VueAxios)
+Vue.use(VueHighlightJS)
+// use
+Vue.use(mavonEditor)
 
 new Vue({
   router,
