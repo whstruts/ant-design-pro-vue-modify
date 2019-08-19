@@ -50,12 +50,13 @@
         moment.locale(selectedLanguage)
         const res = await this.loadLanguageData({ selectedLanguage })
         this.$i18n.locale = selectedLanguage
+        // TODO 此处将后端的国际化资源放入i18n插件中
         this.$i18n.setLocaleMessage(selectedLanguage, res)
       },
       handleLanguageChange (selectedLanguage) {
         const _this = this
+        setI18nLocale(selectedLanguage)
         this.changeLanguage(selectedLanguage).then(() => {
-          setI18nLocale(selectedLanguage)
           _this.setBrowserTabTitle(_this.$route)
         })
       }
