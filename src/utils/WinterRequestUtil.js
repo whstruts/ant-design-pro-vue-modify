@@ -1,6 +1,9 @@
 import { axios } from '@/utils/request'
 import qs from 'qs'
 
+// 默认超时时间:10秒
+const defaultTimeout = 10000
+
 export default {
   /**
    * 普通的form表单提交方式
