@@ -55,6 +55,7 @@
   "menu:wang-editor":"wang富文本编辑器",
   "menu:md-mavon-editor":"markdown编辑器:mavon",
   "menu:code-highlight":"代码高亮",
+  "menu:list-router-detail":"列表页路由详细页示例",
 
 
   "ui:close-current":"关闭当前标签",

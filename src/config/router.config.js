@@ -392,6 +392,32 @@ export const asyncRouterMap = [
             meta: { title: 'markdown编辑器', keepAlive: false }
           }
         ]
+      },
+
+      // list-ui router detail-ui
+      {
+        path: '/list-route-detail',
+        name: 'list-route-detail',
+        redirect: '/list-route-detail/list',
+        component: PageView,
+        meta: { keepAlive: true },
+        children: [
+          {
+            path: '/list-route-detail/list',
+            name: 'list-route-ui',
+            component: () => import('@/views/list-route-detail/Index'),
+            hideChildrenInMenu: true,
+            meta: { title: 'xx管理(列表页)', keepAlive: false },
+            children: [
+              {
+                path: '/list-route-detail/detail',
+                name: 'detail-route-ui',
+                component: () => import('@/views/list-route-detail/detail-ui'),
+                meta: { title: '详细页', keepAlive: false, hidden: true }
+              }
+            ]
+          }
+        ]
       }
     ]
   },

@@ -286,6 +286,12 @@
           "title": "menu:md-mavon-editor"
         }
       ]
+    },
+    {
+      "path": "/list-route-detail/list",
+      "flag": "list-route-ui",
+      "title": "menu:list-router-detail",
+      "icon": "bxAnaalyse"
     }
   ]
 }

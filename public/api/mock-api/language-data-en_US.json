@@ -55,6 +55,7 @@
   "menu:wang-editor":"Wang Text Editor",
   "menu:md-mavon-editor":"Markdown Editor Mavon",
   "menu:code-highlight":"Code Highlight",
+  "menu:list-router-detail":"List Route Detail Demo",
 
 
   "ui:close-current":"close current",
