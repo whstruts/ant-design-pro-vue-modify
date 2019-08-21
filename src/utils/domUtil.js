@@ -15,5 +15,5 @@ export const setDocumentTitle = function (title) {
     document.body.appendChild(i)
   }
 }
-
+// TODO 设置项目名
 export const domTitle = 'Ant Design Pro'
