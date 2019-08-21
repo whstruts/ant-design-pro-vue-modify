@@ -76,6 +76,11 @@
           "path": "/form/advanced-form",
           "flag": "AdvancedForm",
           "title": "menu:AdvanceForm"
+        },
+        {
+          "path": "/form/other-form",
+          "flag": "OtherForm",
+          "title": "menu:OtherForm"
         }
       ]
     },

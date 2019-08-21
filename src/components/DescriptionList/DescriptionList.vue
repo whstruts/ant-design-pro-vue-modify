@@ -1,7 +1,7 @@
 <template>
   <div :class="['description-list', size, layout === 'vertical' ? 'vertical': 'horizontal']">
     <div v-if="title" class="title">{{ title }}</div>
-    <a-row>
+    <a-row :gutter="24">
       <slot></slot>
     </a-row>
   </div>

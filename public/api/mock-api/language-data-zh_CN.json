@@ -56,6 +56,7 @@
   "menu:md-mavon-editor":"markdown编辑器:mavon",
   "menu:code-highlight":"代码高亮",
   "menu:list-router-detail":"列表页路由详细页示例",
+  "menu:OtherForm":"其它表单风格",
 
 
   "ui:close-current":"关闭当前标签",

@@ -1,6 +1,13 @@
 <template>
   <page-view :title="title">
     <a-card :bordered="false">
+      <detail-list title="两列风格" :col="2">
+        <detail-list-item term="取货单号">1000000000</detail-list-item>
+        <detail-list-item term="状态">已取货</detail-list-item>
+        <detail-list-item term="销售单号">1234123421</detail-list-item>
+        <detail-list-item term="子订单">3214321432</detail-list-item>
+      </detail-list>
+      <a-divider style="margin-bottom: 32px"/>
       <detail-list title="退款申请">
         <detail-list-item term="取货单号">1000000000</detail-list-item>
         <detail-list-item term="状态">已取货</detail-list-item>

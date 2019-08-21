@@ -81,6 +81,12 @@ export const asyncRouterMap = [
             name: 'AdvanceForm',
             component: () => import('@/views/form/advancedForm/AdvancedForm'),
             meta: { title: '高级表单', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/form/other-form',
+            name: 'OtherForm',
+            component: () => import('@/views/form/OtherForm'),
+            meta: { title: '其它表单风格', keepAlive: true, permission: ['form'] }
           }
         ]
       },
