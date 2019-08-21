@@ -6,14 +6,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'list-page',
-    methods: {
-      onClick () {
-        this.$router.push({ name: 'list-route-ui' })
-      }
+export default {
+  name: 'ListPage',
+  methods: {
+    onClick () {
+      this.$router.push({ name: 'list-route-ui' })
     }
   }
+}
 </script>
 
 <style scoped>

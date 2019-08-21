@@ -6,14 +6,14 @@
 
 <script>
 
-  export default {
-    name: 'code-highlight.vue',
-    computed: {
+export default {
+  name: 'CodeHighlightVue',
+  computed: {
 
-    },
-    data () {
-      return {
-        content: `package org.pzy.winter.base.support.context;
+  },
+  data () {
+    return {
+      content: `package org.pzy.winter.base.support.context;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import org.pzy.winter.domain.GlobalConstant;
@@ -100,9 +100,9 @@ public class CurrentUserContext {
     }
 }
 `
-      }
     }
   }
+}
 </script>
 
 <style scoped>

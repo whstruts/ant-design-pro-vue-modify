@@ -9,14 +9,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'list-page',
-    methods: {
-      onClick () {
-        this.$router.push({ name: 'detail-route-ui' })
-      }
+export default {
+  name: 'ListPage',
+  methods: {
+    onClick () {
+      this.$router.push({ name: 'detail-route-ui' })
     }
   }
+}
 </script>
 
 <style scoped>

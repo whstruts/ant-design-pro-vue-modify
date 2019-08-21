@@ -32,21 +32,21 @@
 </template>
 
 <script>
-  export default {
-    name: 'fun-permission-test',
-    created: function () {
-      console.log('1-created')
-    },
-    mounted: function () {
-      console.log('2-mounted')
-    },
-    activated: function () {
-      console.log('3-activated')
-    },
-    deactivated: function () {
-      console.log('4-deactivated')
-    }
+export default {
+  name: 'FunPermissionTest',
+  created: function () {
+    console.log('1-created')
+  },
+  mounted: function () {
+    console.log('2-mounted')
+  },
+  activated: function () {
+    console.log('3-activated')
+  },
+  deactivated: function () {
+    console.log('4-deactivated')
   }
+}
 </script>
 
 <style scoped>

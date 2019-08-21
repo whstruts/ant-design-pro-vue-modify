@@ -36,7 +36,7 @@
           :sm="24"
           :xs="24">
           <a-card title="时间" style="margin-bottom: 24px" :bordered="false" :body-style="{padding: 0}">
-            <div style="font-size: 20px;text-align: center;margin-top:15px;margin-bottom: 15px;">{{dateTime}}</div>
+            <div style="font-size: 20px;text-align: center;margin-top:15px;margin-bottom: 15px;">{{ dateTime }}</div>
           </a-card>
           <a-card title="最近登录" style="margin-bottom: 24px" :bordered="false" :body-style="{padding: 0}">
             <div style="margin:20px;">
@@ -61,75 +61,72 @@
 </template>
 
 <script>
-  import { timeFix } from '@/utils/util'
-  import { mapState } from 'vuex'
+import { timeFix } from '@/utils/util'
+import { mapState } from 'vuex'
 
-  import { PageView } from '@/layouts/index'
-  import HeadInfo from '@/components/tools/HeadInfo'
-  import { Radar } from '@/components/index'
+import { PageView } from '@/layouts/index'
+import HeadInfo from '@/components/tools/HeadInfo'
+import { Radar } from '@/components/index'
 
-  import WinterUtil from '@/utils/WinterUtil'
+import WinterUtil from '@/utils/WinterUtil'
 
-  const { dateFormat } = WinterUtil
+const { dateFormat } = WinterUtil
 
-  const DataSet = require('@antv/data-set')
+export default {
+  name: 'Welcome',
+  components: {
+    PageView,
+    HeadInfo,
+    Radar
+  },
+  data () {
+    return {
+      timeFix: timeFix(),
+      avatar: '',
+      user: {},
 
-  export default {
-    name: 'Welcome',
-    components: {
-      PageView,
-      HeadInfo,
-      Radar
-    },
-    data () {
-      return {
-        timeFix: timeFix(),
-        avatar: '',
-        user: {},
-
-        loading: true,
-        dateTime: dateFormat(new Date(), 'yyyy-MM-dd HH:mm'),
-        clearInterval: null
-      }
-    },
-    computed: {
-      ...mapState({
-        nickname: (state) => state.user.nickname,
-        welcome: (state) => state.user.welcome
-      }),
-      userInfo () {
-        return this.$store.getters.userInfo
-      }
-    },
-    created () {
-      this.user = this.userInfo
-      this.avatar = this.userInfo.avatar
-      const _this = this
-      if (!this.clearInterval) {
-        this.clearInterval = setInterval(() => {
-          _this.dateTime = dateFormat(new Date(), 'yyyy-MM-dd HH:mm')
-        }, 10000)
-      }
-    },
-    deactivated () {
-      if (this.clearInterval) {
-        clearInterval(this.clearInterval)
-        this.clearInterval = null
-      }
-    },
-    destroyed () {
-      if (this.clearInterval) {
-        clearInterval(this.clearInterval)
-        this.clearInterval = null
-      }
-    },
-    mounted () {
-    },
-    methods: {}
-  }
+      loading: true,
+      dateTime: dateFormat(new Date(), 'yyyy-MM-dd HH:mm'),
+      clearInterval: null
+    }
+  },
+  computed: {
+    ...mapState({
+      nickname: (state) => state.user.nickname,
+      welcome: (state) => state.user.welcome
+    }),
+    userInfo () {
+      return this.$store.getters.userInfo
+    }
+  },
+  created () {
+    this.user = this.userInfo
+    this.avatar = this.userInfo.avatar
+    const _this = this
+    if (!this.clearInterval) {
+      this.clearInterval = setInterval(() => {
+        _this.dateTime = dateFormat(new Date(), 'yyyy-MM-dd HH:mm')
+      }, 10000)
+    }
+  },
+  deactivated () {
+    if (this.clearInterval) {
+      clearInterval(this.clearInterval)
+      this.clearInterval = null
+    }
+  },
+  destroyed () {
+    if (this.clearInterval) {
+      clearInterval(this.clearInterval)
+      this.clearInterval = null
+    }
+  },
+  mounted () {
+  },
+  methods: {}
+}
 </script>
 
 <style lang="less" scoped>
-
 
 </style>

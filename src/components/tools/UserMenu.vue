@@ -16,24 +16,24 @@
           <a-menu-item key="0">
             <router-link :to="{ name: 'center' }">
               <a-icon type="user"/>
-              <span>{{$t('menu:center')}}</span>
+              <span>{{ $t('menu:center') }}</span>
             </router-link>
           </a-menu-item>
           <a-menu-item key="1">
             <router-link :to="{ name: 'settings' }">
               <a-icon type="setting"/>
-              <span>{{$t('menu:settings')}}</span>
+              <span>{{ $t('menu:settings') }}</span>
             </router-link>
           </a-menu-item>
           <a-menu-item key="2" disabled>
             <a-icon type="setting"/>
-            <span>{{$t('menu:test')}}</span>
+            <span>{{ $t('menu:test') }}</span>
           </a-menu-item>
           <a-menu-divider/>
           <a-menu-item key="3">
             <a href="javascript:;" @click="handleLogout">
               <a-icon type="logout"/>
-              <span>{{$t('menu:logout')}}</span>
+              <span>{{ $t('menu:logout') }}</span>
             </a>
           </a-menu-item>
         </a-menu>

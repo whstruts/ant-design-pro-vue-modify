@@ -2,13 +2,14 @@
   <a-card>
     <p>官网: <a hre="https://surmon-china.github.io/vue-quill-editor/" target="_blank">https://surmon-china.github.io/vue-quill-editor/</a></p>
     <p>文档: <a hre="https://quilljs.com/docs/quickstart/" target="_blank">https://quilljs.com/docs/quickstart/</a></p>
-    <quill-editor ref="myTextEditor"
-                  v-model="content"
-                  :config="editorOption"
-                  @blur="onEditorBlur($event)"
-                  @focus="onEditorFocus($event)"
-                  @ready="onEditorReady($event)"
-                  @change="onEditorChange($event)">
+    <quill-editor
+      ref="myTextEditor"
+      v-model="content"
+      :config="editorOption"
+      @blur="onEditorBlur($event)"
+      @focus="onEditorFocus($event)"
+      @ready="onEditorReady($event)"
+      @change="onEditorChange($event)">
     </quill-editor>
     <div class="quill-code">
       <code class="hljs" v-html="contentCode"></code>
@@ -17,78 +18,78 @@
 </template>
 
 <script>
-  import hljs from 'highlight.js'
+import hljs from 'highlight.js'
 
-  import 'quill/dist/quill.core.css'
-  import 'quill/dist/quill.snow.css'
-  import 'quill/dist/quill.bubble.css'
-  import { quillEditor } from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+import { quillEditor } from 'vue-quill-editor'
 
-  export default {
-    components: {
-      quillEditor
-    },
-    data () {
-      return {
-        content: '',
-        editorOption: {
-          placeholder: '请输入...',
-          modules: {
-            toolbar: [
-              ['bold', 'italic', 'underline', 'strike'],
-              ['blockquote', 'code-block'],
-              [{ 'header': 1 }, { 'header': 2 }],
-              [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-              [{ 'script': 'sub' }, { 'script': 'super' }],
-              [{ 'indent': '-1' }, { 'indent': '+1' }],
-              [{ 'direction': 'rtl' }],
-              [{ 'size': ['small', false, 'large', 'huge'] }],
-              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-              [{ 'font': [] }],
-              [{ 'color': [] }, { 'background': [] }],
-              [{ 'align': [] }],
-              ['clean'],
-              ['link', 'image', 'video']
-            ],
-            syntax: {
-              highlight: text => {
-                return hljs.highlightAuto(text).value; // 这里就是代码高亮需要配置的地方
-              }
+export default {
+  components: {
+    quillEditor
+  },
+  data () {
+    return {
+      content: '',
+      editorOption: {
+        placeholder: '请输入...',
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ 'header': 1 }, { 'header': 2 }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],
+            [{ 'indent': '-1' }, { 'indent': '+1' }],
+            [{ 'direction': 'rtl' }],
+            [{ 'size': ['small', false, 'large', 'huge'] }],
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            [{ 'font': [] }],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'align': [] }],
+            ['clean'],
+            ['link', 'image', 'video']
+          ],
+          syntax: {
+            highlight: text => {
+              return hljs.highlightAuto(text).value // 这里就是代码高亮需要配置的地方
             }
           }
         }
       }
+    }
+  },
+  // 如果需要手动控制数据同步，父组件需要显式地处理changed事件
+  methods: {
+    onEditorBlur (editor) {
+      console.log('editor失去焦点!', editor)
     },
-    // 如果需要手动控制数据同步，父组件需要显式地处理changed事件
-    methods: {
-      onEditorBlur (editor) {
-        console.log('editor失去焦点!', editor)
-      },
-      onEditorFocus (editor) {
-        console.log('editor获取焦点!', editor)
-      },
-      onEditorReady (editor) {
-        console.log('editor加载完毕!', editor)
-      },
-      onEditorChange ({ editor, html, text }) {
-        console.log('编辑器内容改变!')
-        this.content = html
-      }
+    onEditorFocus (editor) {
+      console.log('editor获取焦点!', editor)
     },
-    // 如果你需要得到当前的editor对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的editor对象，实际上这里的$refs对应的是当前组件内所有关联了ref属性的组件元素对象
-    computed: {
-      editor () {
-        return this.$refs.myTextEditor.quillEditor
-      },
-      contentCode() {
-        return hljs.highlightAuto(this.content).value
-      }
+    onEditorReady (editor) {
+      console.log('editor加载完毕!', editor)
     },
-    mounted () {
-      console.log('this is my editor', this.editor)
-      const _this =this
-      setTimeout(()=>{
-        _this.content = `<h1 class="ql-align-center">
+    onEditorChange ({ editor, html, text }) {
+      console.log('编辑器内容改变!')
+      this.content = html
+    }
+  },
+  // 如果你需要得到当前的editor对象来做一些事情，你可以像下面这样定义一个方法属性来获取当前的editor对象，实际上这里的$refs对应的是当前组件内所有关联了ref属性的组件元素对象
+  computed: {
+    editor () {
+      return this.$refs.myTextEditor.quillEditor
+    },
+    contentCode () {
+      return hljs.highlightAuto(this.content).value
+    }
+  },
+  mounted () {
+    console.log('this is my editor', this.editor)
+    const _this = this
+    setTimeout(() => {
+      _this.content = `<h1 class="ql-align-center">
                           <span class="ql-font-serif" style="background-color: rgb(240, 102, 102); color: rgb(255, 255, 255);"> I am Example 1! </span>
                         </h1>
                         <p><br></p>
@@ -114,9 +115,9 @@
                         <p><br></p>
                         <p><span class="ql-font-serif">The things we love destroy us every time.</span></p>
                         `
-      },3000)
-    }
+    }, 3000)
   }
+}
 </script>
 
 <style scoped>

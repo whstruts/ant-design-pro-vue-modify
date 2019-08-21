@@ -10,19 +10,19 @@
 
 <script>
 
-  export default {
-    name: 'md-mavon-editor',
-    components: {
-    },
-    data () {
-      return { value: '' }
-    },
-    methods:{
-      getMdValue(){
-        console.log(this.value)
-      }
+export default {
+  name: 'MdMavonEditor',
+  components: {
+  },
+  data () {
+    return { value: '' }
+  },
+  methods: {
+    getMdValue () {
+      console.log(this.value)
     }
   }
+}
 </script>
 
 <style scoped>
