@@ -23,7 +23,7 @@ export default {
   autoHideHeader: false, //  auto hide header
   colorWeak: false,
   multiTab: false,
-  // TODO 设置为下面这种形式, 就可以去掉动态主题配置的组件
+  // TODO 设置为下面这种形式, 就可以去掉动态主题配置的组件(生产不建议使用)
   production: false,
   // production: process.env.NODE_ENV === 'production' && process.env.VUE_APP_PREVIEW !== 'true',
   // vue-ls options
