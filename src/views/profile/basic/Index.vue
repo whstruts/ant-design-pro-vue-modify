@@ -1,6 +1,33 @@
 <template>
   <page-view :title="title">
     <a-card :bordered="false">
+      <h3>线条风格</h3>
+      <a-row :gutter="24">
+        <a-col :span="12">
+          <div class="winter-row">
+            <strong>属性</strong><span>这是属性内容...</span>
+          </div>
+        </a-col>
+        <a-col :span="12">
+          <div class="winter-row">
+            <strong>属性</strong><span>这是属性内容...</span>
+          </div>
+        </a-col>
+      </a-row>
+      <a-row :gutter="24">
+        <a-col :span="12">
+          <div class="winter-row">
+            <strong>属性</strong><span>这是属性内容...</span>
+          </div>
+        </a-col>
+        <a-col :span="12">
+          <div class="winter-row">
+            <strong>属性</strong><span>这是属性内容...</span>
+          </div>
+        </a-col>
+      </a-row>
+    </a-card>
+    <a-card :bordered="false">
       <detail-list title="两列风格" :col="2">
         <detail-list-item term="取货单号">1000000000</detail-list-item>
         <detail-list-item term="状态">已取货</detail-list-item>
@@ -55,10 +82,12 @@
 import { PageView } from '@/layouts'
 import { STable } from '@/components'
 import DetailList from '@/components/tools/DetailList'
+import ACol from 'ant-design-vue/es/grid/Col'
 const DetailListItem = DetailList.Item
 
 export default {
   components: {
+    ACol,
     PageView,
     DetailList,
     DetailListItem,
@@ -258,5 +287,17 @@ export default {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 16px;
+  }
+  .winter-row{
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 15px;
+    padding-bottom: 3px;
+  }
+  .winter-row strong{
+    padding-right:5px;
+    display: inline-block;
+  }
+  .winter-row strong:after{
+    content: ":";
   }
 </style>
