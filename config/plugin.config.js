@@ -11,7 +11,7 @@ const getAntdSerials = (color) => {
 }
 
 const themePluginOption = {
-  fileName: process.env.VUE_APP_PROJECT_NAME_THEME_COLOR_PREFIX + 'css/theme-colors-[contenthash:8].css',
+  fileName: 'css/theme-colors-[contenthash:8].css',
   matchColors: getAntdSerials('#1890ff'), // 主色系列
   // 改变样式选择器，解决样式覆盖问题
   changeSelector (selector) {
