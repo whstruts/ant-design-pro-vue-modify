@@ -33,6 +33,7 @@ const colorList = [
 
 const updateTheme = newPrimaryColor => {
   const hideMessage = message.loading('正在切换主题！', 0)
+  console.log('新主题颜色:', newPrimaryColor)
   themeColor.changeColor(newPrimaryColor).finally(t => {
     hideMessage()
   })

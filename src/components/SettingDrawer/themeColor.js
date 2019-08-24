@@ -15,7 +15,8 @@ export default {
     var options = {
       newColors: this.getAntdSerials(newColor), // new colors array, one-to-one corresponde with `matchColors`
       changeUrl (cssUrl) {
-        return `/${cssUrl}` // while router is not `hash` mode, it needs absolute path
+        console.log('css的url地址:', process.env.VUE_APP_PROJECT_NAME + `/${cssUrl}`)
+        return process.env.VUE_APP_PROJECT_NAME + `/${cssUrl}` // while router is not `hash` mode, it needs absolute path
       }
     }
     return client.changer.changeColor(options, Promise)
