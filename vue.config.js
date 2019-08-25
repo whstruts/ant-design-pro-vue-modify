@@ -74,11 +74,9 @@ const vueConfig = {
 }
 
 // preview.pro.loacg.com only do not use in your production;
-// if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'true') {
-//   // add `ThemeColorReplacer` plugin to webpack plugins
-//   vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
-// }
-// TODO 用于在示例网站,加入主题切换功能(生产不建议使用)
-vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
+if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_PREVIEW === 'true') {
+  // add `ThemeColorReplacer` plugin to webpack plugins
+  vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
+}
 
 module.exports = vueConfig
