@@ -57,6 +57,24 @@
       ]
     },
     {
+      "path": "/wcs",
+      "flag": "wcs",
+      "title": "menu:wcs",
+      "icon": "form",
+      "children": [
+        {
+          "path": "/wcs/ck/myadvanced-form",
+          "flag": "MyAdvancedForm",
+          "title": "menu:MyAdvanceForm"
+        },
+        {
+          "path": "/wcs/ck/table-list-wcs/1",
+          "flag": "TableListWrapperWCS",
+          "title": "menu:TableListWrapperWCS"
+        }
+      ]
+    },
+    {
       "path": "/form",
       "flag": "form",
       "title": "menu:form",
