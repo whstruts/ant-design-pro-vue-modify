@@ -1,12 +1,5 @@
 <template>
   <div>
-    <a-card class="card" title="仓库管理" :bordered="false">
-      <repository-form ref="repository" :showSubmit="false" />
-    </a-card>
-    <a-card class="card" title="任务管理" :bordered="false">
-      <task-form ref="task" :showSubmit="false" />
-    </a-card>
-
     <!-- table -->
     <a-card>
       <a-table
@@ -75,11 +68,11 @@
 </template>
 
 <script>
-import RepositoryForm from './RepositoryForm'
-import TaskForm from './TaskForm'
+import RepositoryForm from '../../form/advancedForm/RepositoryForm'
+import TaskForm from '../../form/advancedForm/TaskForm'
 import FooterToolBar from '@/components/FooterToolbar'
 import { mixin, mixinDevice } from '@/utils/mixin'
-
+import { Button } from 'ant-design-vue'
 const fieldLabels = {
   name: '仓库名',
   url: '仓库域名',
@@ -96,7 +89,7 @@ const fieldLabels = {
 }
 
 export default {
-  name: 'AdvancedForm',
+  name: 'MyAdvancedForm',
   mixins: [mixin, mixinDevice],
   components: {
     FooterToolBar,
@@ -105,7 +98,7 @@ export default {
   },
   data () {
     return {
-      description: '高级表单常见于一次性输入和提交大批量数据的场景。',
+      description: 'WMS表单常见于一次性输入和提交大批量数据的场景。',
       loading: false,
       memberLoading: false,
 
