@@ -4,6 +4,7 @@ const api = {
   user: '/user',
   role: '/role',
   service: '/service',
+  wcs: '/wcs',
   permission: '/permission',
   permissionNoPager: '/permission/no-pager',
   orgTree: '/org/tree'
@@ -30,6 +31,14 @@ export function getRoleList (parameter) {
 export function getServiceList (parameter) {
   return axios({
     url: api.service,
+    method: 'get',
+    params: parameter
+  })
+}
+
+export function getWCSList (parameter) {
+  return axios({
+    url: api.wcs,
     method: 'get',
     params: parameter
   })

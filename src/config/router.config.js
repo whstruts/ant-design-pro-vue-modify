@@ -26,7 +26,6 @@ export const asyncRouterMap = [
           }
         ]
       },
-
       // dashboard
       {
         path: '/dashboard',
@@ -55,7 +54,29 @@ export const asyncRouterMap = [
           }
         ]
       },
-
+      // wcs
+      {
+        path: '/wcs',
+        redirect: '/wcs/ck',
+        name: 'wcs',
+        component: PageView,
+        meta: { title: 'WCS页', icon: 'form', permission: ['form'] },
+        children: [
+          {
+            path: '/wcs/ck/myadvanced-form',
+            name: 'MyAdvanceForm',
+            component: () => import('@/views/wcs/ck/MyAdvancedForm'),
+            meta: { title: 'WMS表单', keepAlive: true, permission: ['form'] }
+          },
+          {
+            path: '/wcs/ck/table-list-wcs/:pageNo([1-9]\\d*)?',
+            name: 'TableListWrapperWCS',
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
+            component: () => import('@/views/wcs/ck/TableListWCS'),
+            meta: { title: '查询表格WCS', keepAlive: true, permission: ['table'] }
+          }
+        ]
+      },
       // forms
       {
         path: '/form',
