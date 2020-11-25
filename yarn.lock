@@ -4756,13 +4756,9 @@ highlight.js-async-webpack@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/highlight.js-async-webpack/download/highlight.js-async-webpack-1.0.4.tgz#c06b67bf99f049045d62b756e5855b0912ec616c"
 
-highlight.js@*, highlight.js@^9.11.0:
-  version "9.15.9"
-  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.15.9.tgz#865257da1dbb4a58c4552d46c4b3854f77f0e6d5"
-
-highlight.js@^9.6.0:
-  version "9.15.6"
-  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-9.15.6.tgz#72d4d8d779ec066af9a17cb14360c3def0aa57c4"
+highlight.js@*, highlight.js@^9.11.0, highlight.js@^9.6.0:
+  version "9.18.5"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
 
 highlight@^0.2.4:
   version "0.2.4"
@@ -10037,6 +10033,10 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yarn@^1.19.1:
+  version "1.22.10"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.10.tgz#c99daa06257c80f8fa2c3f1490724e394c26b18c"
 
 yorkie@^2.0.0:
   version "2.0.0"
