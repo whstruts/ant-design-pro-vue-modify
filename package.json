@@ -22,7 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash.get": "^4.4.2",
     "lodash.pick": "^4.4.0",
-    "mavon-editor": "^2.7.5",
+    "mavon-editor": "^2.8.2",
     "md5": "^2.2.1",
     "mockjs2": "^1.0.5",
     "moment": "^2.24.0",
